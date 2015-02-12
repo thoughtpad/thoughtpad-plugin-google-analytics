@@ -22,9 +22,9 @@ getGaScript = function (config) {
       thoughtpad.analytics = { \
         time: 0 \
       }; \
-      setTimeout(function () { \
-        time += 10; \
-        ga("send", "event", "time", "reading", document.title, thoughtpad.analytics.time); \
+      setInterval(function () { \
+        thoughtpad.analytics.time += 10; \
+        ga("send", "event", "time", document.title, thoughtpad.analytics.time); \
       }, 10000);';
 
     return script;
