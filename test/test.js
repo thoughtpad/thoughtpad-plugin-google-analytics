@@ -28,7 +28,7 @@ describe("google analytics plugin", function () {
             yield thoughtpad.notify("javascript-precompile-request", {});
             res.should.be.true;
             done();
-        })();
+        }).catch(done);
     });
 
     it("should yield with the analytics script", function (done) {
@@ -55,7 +55,7 @@ describe("google analytics plugin", function () {
             yield thoughtpad.notify("javascript-precompile-request", {});
             count.should.equal(1);
             done();
-        })();
+        }).catch(done);
     });
 
     it("should put the analytics script into the config", function (done) {
@@ -82,7 +82,7 @@ describe("google analytics plugin", function () {
             yield thoughtpad.notify("javascript-precompile-request", {});
             thoughtpad.config.jsbundle.one.should.eql(['stuff', 'google-analytics']);
             done();            
-        })();
+        }).catch(done);
     });
 
     it("should have the userid in the script", function (done) {
@@ -111,7 +111,7 @@ describe("google analytics plugin", function () {
             yield thoughtpad.notify("javascript-precompile-request", {});
             res.contents.indexOf('myuser').should.not.equal(-1);
             done();            
-        })();
+        }).catch(done);
     });
 
 });
